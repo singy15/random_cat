@@ -1,0 +1,6 @@
+{
+  "require": {
+    "ircmaxell/random-lib": "1.0.0",
+    "eftec/bladeone": "^3.52" 
+  }
+}
