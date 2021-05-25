@@ -49,14 +49,14 @@
           <br>
           <span>もっとみる</span>
         </a>
-        
-        <a href="/upload.php" class="labeled-image-button text-x-small text-bold text-color-gray">
+
+        <a href="{{ isset($_SESSION['user_id'])? '/upload.php' : '/login.php' }}" class="labeled-image-button text-x-small text-bold text-color-gray">
           <img class="labeled-image-button" width="64" height="64" src="/static/image/upload.svg" alt="投稿にゃんこ">
           <br>
           <span>投稿する</span>
         </a>
 
-        <a href="/my_nyanko.php" class="labeled-image-button text-x-small text-bold text-color-gray">
+        <a href="{{ isset($_SESSION['user_id'])? '/my_nyanko.php' : '/login.php' }}" class="labeled-image-button text-x-small text-bold text-color-gray">
           <img class="labeled-image-button" width="64" height="64" src="/static/image/heart.svg" alt="Myにゃんこ">
           <br>
           <span>Myにゃんこ</span>

@@ -35,5 +35,7 @@ $database->addConnection($config);
 $database->setAsGlobal();
 $database->bootEloquent();
 
+session_start();
+
 ?>
 

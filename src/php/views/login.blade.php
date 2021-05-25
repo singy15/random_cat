@@ -53,19 +53,32 @@
   </style>
 </head>
 <body class="text-center">
-<form class="form-signin" action="/index.php">
+<form class="form-signin" method="post" action="">
+  <input type="hidden" name="posted" value="1">
+
   <div class="pb-3">
-    <div style="position:relative; display:inline-block; text-align:center; background-color:#AAA; border-radius:75px; width:150px; height:150px;">
-      <img src="/static/image/cat-stretch.svg" style="width:64px; height:64px; position:absolute; left:calc(50% - 35px); top:calc(50% - 45px); filter:invert(0.0);" alt="ホーム"/>
-      <span class="text-gray text-bold" style="color:#555; position:absolute; left:calc(50% - 32px); top:calc(50% + 17px); white-space:nowrap;">らんだむ</span>
-    </div>
+    <a class="clear_link" href="/index.php">
+      <div style="position:relative; display:inline-block; text-align:center; background-color:#AAA; border-radius:75px; width:150px; height:150px;">
+        <img src="/static/image/cat-stretch.svg" style="width:64px; height:64px; position:absolute; left:calc(50% - 35px); top:calc(50% - 45px); filter:invert(0.0);" alt="ホーム"/>
+        <span class="text-gray text-bold" style="color:#555; position:absolute; left:calc(50% - 32px); top:calc(50% + 17px); white-space:nowrap;">らんだむ</span>
+      </div>
+    </a>
   </div>
 
   <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="text" id="inputEmail" class="form-control" placeholder="ユーザID" required autofocus>
+  <input type="text" name="user_id" class="form-control" placeholder="ユーザID" autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
+  <input type="password" name="password" class="form-control" placeholder="パスワード">
   <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+
+  <?php if( !empty($error) ): ?>
+    <?php foreach( $error as $value ): ?>
+      <div class="alert alert-danger small m-1 p-1" role="alert">
+        <?php echo $value; ?>
+      </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
+
   <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
 </form>
 </body>

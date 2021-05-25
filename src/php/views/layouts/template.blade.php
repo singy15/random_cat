@@ -32,7 +32,21 @@
           <img src="/static/image/cat-stretch.svg" style="width:24px; height:24px; margin-left:2px; margin-right:5px; margin-top:-5px; filter:invert(1.0);" alt="ホーム"/>
         </a>
 
-        <a href="/login.php" class="clear-link" style="color:#888">ログイン</a>
+        <?php if(isset($_SESSION['user_id'])): ?>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ $_SESSION['user_name'] }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="/logout.php">ログアウト</a></li>
+            </ul>
+          </div>
+        <?php else: ?>
+          <a href="/login.php" class="clear-link" style="color:#888">
+            ログイン
+          </a>
+        <?php endif; ?>
+
       </div>
     </div>
   </header>
@@ -66,6 +80,8 @@
     </div>
   </footer>
       -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
 
