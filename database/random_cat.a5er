@@ -45,20 +45,20 @@ PName=post
 LName=post
 Comment=
 TableOption=
-Page=Main
+Page=MAIN
 Left=1150
 Top=650
 Field="post_id","post_id","INTEGER","NOT NULL",0,"","",$FFFFFFFF,"AUTOINCREMENT"
 Field="subject","subject","TEXT","NOT NULL",,"","",$FFFFFFFF,""
-Field="comment","comment","TEXT","NOT NULL",,"\q\q","",$FFFFFFFF,""
-Field="pthoto_path","pthoto_path","TEXT","NOT NULL",,"","",$FFFFFFFF,""
+Field="description","description","TEXT","NOT NULL",,"\q\q","",$FFFFFFFF,""
+Field="photo_path","photo_path","TEXT","NOT NULL",,"","",$FFFFFFFF,""
 Field="author","author","INTEGER","NOT NULL",,"","",$FFFFFFFF,""
 Field="user_id","user_id","INTEGER","NOT NULL",,"","",$FFFFFFFF,"AUTOINCREMENT"
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20210525115309
-Position="Main",1150,650,305,180
+ModifiedDateTime=20210525180547
+Position="MAIN",1150,650,305,180
 ZOrder=1
 
 [Entity]
@@ -66,7 +66,7 @@ PName=user
 LName=user
 Comment=
 TableOption=
-Page=Main
+Page=MAIN
 Left=500
 Top=700
 Field="user_id","user_id","INTEGER","NOT NULL",0,"","",$FFFFFFFF,"AUTOINCREMENT"
@@ -77,7 +77,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20210525114414
-Position="Main",500,700,208,148
+Position="MAIN",500,700,208,148
 ZOrder=3
 
 [Entity]
@@ -85,7 +85,7 @@ PName=like
 LName=like
 Comment=
 TableOption=
-Page=Main
+Page=MAIN
 Left=850
 Top=650
 Field="like_id","like_id","INTEGER","NOT NULL",0,"","",$FFFFFFFF,"AUTOINCREMENT"
@@ -95,7 +95,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20210525114620
-Position="Main",850,650,182,97
+Position="MAIN",850,650,182,97
 ZOrder=4
 
 [Entity]
@@ -103,7 +103,7 @@ PName=album
 LName=album
 Comment=
 TableOption=
-Page=Main
+Page=MAIN
 Left=900
 Top=950
 Field="album_id","album_id","INTEGER","NOT NULL",0,"","",$FFFFFFFF,"AUTOINCREMENT"
@@ -112,7 +112,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20210525114656
-Position="Main",900,950,203,104
+Position="MAIN",900,950,203,104
 ZOrder=5
 
 [Entity]
@@ -120,7 +120,7 @@ PName=album_entry
 LName=album_entry
 Comment=
 TableOption=
-Page=Main
+Page=MAIN
 Left=1200
 Top=950
 Field="album_entry_id","album_entry_id","INTEGER","NOT NULL",0,"","",$FFFFFFFF,"AUTOINCREMENT"
@@ -130,7 +130,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20210525114746
-Position="Main",1200,950,215,111
+Position="MAIN",1200,950,215,111
 ZOrder=6
 
 [Relation]

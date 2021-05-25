@@ -9,16 +9,15 @@
     <div class="row">
       <div class="col-12 col-md-9 col-lg-8 mx-auto">
         <div class="card shadow-sm p-1">
-          <img class="bd-placeholder-img card-img-top img-fluid" src="/static/image/cat.jpeg" role="img" 
+          <img class="bd-placeholder-img card-img-top img-fluid" src="/static/photo/{{ $post->photo_path }}" role="img" 
             aria-label="Placeholder: Thumbnail"  focusable="false">
             <title>Placeholder</title>
-            <span class="text-bold">"にゃんこ"</span>
+            <span class="text-bold text-color-gray">"{{ $post->subject }}"</span>
           </img>
-
           <div class="card-body py-1 pb-2">
-            <p class="card-text small">今日とったにゃんこです。<br>たいへんもふもふがよろしゅうございます。</p>
+            <p class="card-text small text-color-gray">{{ $post->description }}</p>
             <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted">投稿者: foobar</small>
+              <small class="text-muted">投稿者: {{ $author->login_id }}</small>
 
               <span>
                 <a href="#" class="clear-link">
