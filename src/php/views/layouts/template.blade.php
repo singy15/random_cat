@@ -27,9 +27,9 @@
     </div>
     <div class="navbar navbar-light bg-light shadow-sm">
       <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="/index.php" class="navbar-brand d-flex align-items-center">
           <span class="text-gray text-bold small" style="color:#888">らんだむ</span>
-          <img src="./static/image/cat-stretch.svg" style="width:24px; height:24px; margin-left:2px; margin-right:5px; margin-top:-5px; filter:invert(1.0);" alt="ホーム"/>
+          <img src="/static/image/cat-stretch.svg" style="width:24px; height:24px; margin-left:2px; margin-right:5px; margin-top:-5px; filter:invert(1.0);" alt="ホーム"/>
         </a>
 
         <a href="/login.php" class="clear-link" style="color:#888">ログイン</a>

@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
   <style>
     html,
     body {
@@ -53,10 +53,10 @@
   </style>
 </head>
 <body class="text-center">
-<form class="form-signin" action="/">
+<form class="form-signin" action="/index.php">
   <div class="pb-3">
     <div style="position:relative; display:inline-block; text-align:center; background-color:#AAA; border-radius:75px; width:150px; height:150px;">
-      <img src="./static/image/cat-stretch.svg" style="width:64px; height:64px; position:absolute; left:calc(50% - 35px); top:calc(50% - 45px); filter:invert(0.0);" alt="ホーム"/>
+      <img src="/static/image/cat-stretch.svg" style="width:64px; height:64px; position:absolute; left:calc(50% - 35px); top:calc(50% - 45px); filter:invert(0.0);" alt="ホーム"/>
       <span class="text-gray text-bold" style="color:#555; position:absolute; left:calc(50% - 32px); top:calc(50% + 17px); white-space:nowrap;">らんだむ</span>
     </div>
   </div>

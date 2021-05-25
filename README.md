@@ -34,6 +34,7 @@ Myにゃんこに登録することで自分だけのお気に入りのにゃん
 - PHP v8.0.6
 - Composer v2.0.14
 - BladeOne v3.52
+- Illuminate/Database v8.42
 - SQLite3
 - Vue.js
 - Bootstrap4
