@@ -4,32 +4,47 @@ require_once "common.php";
 $error = array();
 
 if(!empty($_POST) && array_key_exists('posted', $_POST)) {
+  //// Validation
+
+  // Check user_id not empty
   if(empty($_POST['user_id'])) {
     $error[] = "ユーザIDを入力してください";
   }
 
+  // Check password not empty
   if(empty($_POST['password'])) {
     $error[] = "パスワードを入力してください";
   }
 
-  $authenticated = true;
+  //// Authentication
 
-  // TODO 認証処理
+  $authenticated = false;
+  if(count($error) == 0) {
+    $user = DB::table('user')
+      ->where('login_id', '=', $_POST['user_id'])
+      ->where('password', '=', $_POST['password']) //TODO hash
+      ->first();
+
+    if($user) {
+      $authenticated = true;
+    } else {
+      $error[] = "ログイン失敗しました、ユーザIDとパスワードを確認してください";
+    }
+  }
 
   if((count($error) == 0) && ($authenticated)) {
-    $_SESSION['user_id'] = 1;
-    $_SESSION['user_name'] = 'kedama';
-
-    // header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . './login_post.php', true, 307);
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php');
+    // Set session
+    $_SESSION['user_id'] = $user->user_id;
+    $_SESSION['user_name'] = $user->login_id;
+  
+    // Redirect to index
+    header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['SCRIPT_NAME'])*/ . '/index.php', true, 301);
     exit();
   }
 }
 
 
 $variables = [
-  "variable1"=>"Hello",
-  "variable2"=>"World",
   "error" => $error
 ];
  

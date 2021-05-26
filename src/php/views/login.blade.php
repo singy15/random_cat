@@ -53,7 +53,7 @@
   </style>
 </head>
 <body class="text-center">
-<form class="form-signin" method="post" action="">
+<form class="form-signin" method="post" action="/login.php">
   <input type="hidden" name="posted" value="1">
 
   <div class="pb-3">
@@ -70,6 +70,8 @@
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" name="password" class="form-control" placeholder="パスワード">
   <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+  <br>
+  <a href="/signup.php" class="small">アカウント作成</a>
 
   <?php if( !empty($error) ): ?>
     <?php foreach( $error as $value ): ?>
