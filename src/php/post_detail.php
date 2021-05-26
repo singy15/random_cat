@@ -1,16 +1,17 @@
 <?php
 require_once "common.php";
 
-// $_GET['post_id']
+$post = DB::table('post')
+  ->where('post_id', '=', $_GET['post_id'])
+  ->first();
 
-// $rows = DB::select('select * from post order by random() limit 1');
-// $post = $rows[0];
-// 
-// $author = DB::table('user')
-//   ->where('user_id', '=', $post->author)
-//   ->get()[0];
+$author = DB::table('user')
+  ->where('user_id', '=', $post->author)
+  ->first();
 
 $variables = [
+  "post" => $post,
+  "author" => $author
 ];
 
 echo $blade->run("post_detail", $variables);

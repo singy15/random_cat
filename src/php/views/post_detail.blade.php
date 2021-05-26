@@ -32,8 +32,24 @@
                   </small>
                 </a>
 
-              </span>
+                @if ($_SESSION['user_id'] == $post->author)
+                  &nbsp;
+                  &nbsp;
 
+                  <form method="post" action="/post_delete.php"   
+                      name="post_form_delete" style="display:inline">
+                    <input type="hidden" name="post_id" 
+                        value="{{ $post->post_id }}">
+                    <a href="javascript:post_form_delete.submit()" 
+                        class="clear-link"
+                        onclick="return confirm('記事を削除します、よろしいですか？')" 
+                    >
+                      <img src="/static/image/delete.svg" 
+                        width="20" alt="削除">
+                    </a>
+                  </form>
+                @endif
+              </span>
             </div>
           </div>
         </div>

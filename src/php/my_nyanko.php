@@ -1,7 +1,7 @@
 <?php
 require_once "common.php";
 
-$page_size = 2;
+$page_size = 9;
 
 $get_form = array();
 if(!empty($_GET)) {
@@ -13,7 +13,7 @@ if(!empty($_GET)) {
 // Set initial condition
 if(empty($_GET)) {
   $get_form['page'] = 0;
-  $get_form['category'] = 'posted';
+  $get_form['category'] = 'favorite';
 }
 
 $get_form['page_count'] = 1;
