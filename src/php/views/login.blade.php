@@ -70,8 +70,6 @@
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" name="password" class="form-control" placeholder="パスワード">
   <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
-  <br>
-  <a href="/signup.php" class="small">アカウント作成</a>
 
   <?php if( !empty($error) ): ?>
     <?php foreach( $error as $value ): ?>
@@ -80,6 +78,12 @@
       </div>
     <?php endforeach; ?>
   <?php endif; ?>
+
+  <br>
+  <a href="/index.php" class="small">ゲストとして利用する</a>
+  <br>
+  <br>
+  <a href="/signup.php" class="small">アカウント作成</a>
 
   <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
 </form>

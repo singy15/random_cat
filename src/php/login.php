@@ -22,10 +22,9 @@ if(!empty($_POST) && array_key_exists('posted', $_POST)) {
   if(count($error) == 0) {
     $user = DB::table('user')
       ->where('login_id', '=', $_POST['user_id'])
-      ->where('password', '=', $_POST['password']) //TODO hash
       ->first();
 
-    if($user) {
+    if($user && password_verify($_POST['password'], $user->password)) {
       $authenticated = true;
     } else {
       $error[] = "ログイン失敗しました、ユーザIDとパスワードを確認してください";
