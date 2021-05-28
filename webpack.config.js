@@ -18,8 +18,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "dist"),
-    publicPath: "/js/",
-    filename: "js/[name].js",
+    publicPath: "/static/js/",
+    filename: "static/js/[name].js",
     library: ["com", "kedama"],
     libraryTarget: "umd"
   },

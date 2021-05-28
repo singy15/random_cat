@@ -32,6 +32,10 @@
         }   
       }
     }
+
+    function toggleLike() {
+
+    }
   </script>
 
   <div class="container" id="app">

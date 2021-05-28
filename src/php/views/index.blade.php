@@ -27,13 +27,20 @@
                 &nbsp;
                 &nbsp;
 
-                <a href="#" class="clear-link">
-                  <img src="/static/image/footprint-outlined.svg" width="20" alt="いいにゃ">
-                  <small class="text-muted">
-                    x16
-                  </small>
-                </a>
-
+                <form method="post" action="/post_like.php"   
+                    name="post_form_like" style="display:inline">
+                  <input type="hidden" name="post_id" 
+                      value="{{ $post->post_id }}">
+                  <a href="javascript:toggleLike({{ $post->post_id }})" 
+                      class="clear-link">
+                    <img id="like" 
+                      src="{{ ($like)? '/static/image/footprint-filled.svg' : '/static/image/footprint-outlined.svg' }}" 
+                      width="20" alt="いいにゃ">
+                  </a>
+                </form>
+                <small id="like_count" class="text-muted">
+                  {{ 'x' . $like_count }}
+                </small>
               </span>
 
             </div>
@@ -63,7 +70,10 @@
         </a>
       </div>
     </div>
-
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="/static/js/index.js"></script>
 @endsection
 
