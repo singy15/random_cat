@@ -20,11 +20,18 @@ $get_form['page_count'] = 1;
 
 // Get posts
 if($get_form['category'] == 'posted') {
+  /*
+   * Fetch posted
+   */
+
   $post_count = DB::table('post')
     ->where('author', '=', $_SESSION['user_id'])
     ->count();
 
   $get_form['page_count'] = ceil($post_count / $page_size);
+  if($get_form['page_count'] == 0) {
+    $get_form['page_count'] = 1;
+  }
 
   $posts = DB::table('post')
     ->where('author', '=', $_SESSION['user_id'])
@@ -32,7 +39,49 @@ if($get_form['category'] == 'posted') {
     ->take($page_size)
     ->get();
 } elseif($get_form['category'] == 'favorite') {
-  $posts = array();
+  /*
+   * Fetch favorite
+   */
+
+  $sql = <<< SQL
+      select 
+        p.* 
+      from favorite as f
+      left join post as p
+        on f.post_id = p.post_id
+      where f.user_id = :user_id
+      order by p.post_id 
+      limit :limit 
+      offset :offset
+  SQL;
+
+  $sql_count = <<< SQL
+      select 
+        count(p.post_id) as cnt
+      from favorite as f
+      left join post as p
+        on f.post_id = p.post_id
+      where f.user_id = :user_id
+  SQL;
+
+  $params = [
+    'user_id' => $_SESSION['user_id'],
+    'limit' => $page_size,
+    'offset' => $page_size * $get_form['page']
+  ];
+
+  $params_count = [
+    'user_id' => $_SESSION['user_id']
+  ];
+
+  $post_count = DB::select($sql_count, $params_count)[0]->cnt;
+
+  $get_form['page_count'] = ceil($post_count / $page_size);
+  if($get_form['page_count'] == 0) {
+    $get_form['page_count'] = 1;
+  }
+
+  $posts = DB::select($sql, $params);
 }
 
 $variables = [

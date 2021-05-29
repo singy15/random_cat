@@ -20,9 +20,22 @@
               <small class="text-muted">投稿者: {{ $author->login_id }}</small>
 
               <span>
+                <!--
                 <a href="#" class="clear-link">
                   <img src="/static/image/heart-outlined.svg" width="20" alt="Myにゃんこ">
                 </a>
+                -->
+                <form method="post" action="/post_favorite.php"   
+                    name="post_form_favorite" style="display:inline">
+                  <input type="hidden" name="post_id" 
+                      value="{{ $post->post_id }}">
+                  <a href="javascript:toggleFavorite({{ $post->post_id }})" 
+                      class="clear-link">
+                    <img id="favorite" 
+                      src="{{ ($favorite)? '/static/image/heart.svg' : '/static/image/heart-outlined.svg' }}" 
+                      width="20" alt="Myにゃんこ">
+                  </a>
+                </form>
 
                 &nbsp;
                 &nbsp;

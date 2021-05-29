@@ -17,11 +17,17 @@ $like_count = DB::table('like')
   ->where('post_id', '=', $post->post_id)
   ->count();
 
+$favorite = DB::table('favorite')
+  ->where('user_id', '=', $_SESSION['user_id'])
+  ->where('post_id', '=', $post->post_id)
+  ->first();
+
 $variables = [
   "post" => $post,
   "author" => $author,
   "like" => $like,
-  "like_count" => $like_count
+  "like_count" => $like_count,
+  "favorite" => $favorite
 ];
 
 echo $blade->run("index", $variables);

@@ -1,34 +1,46 @@
 <?php
 require_once "common.php";
 
+function fetch_like($user_id, $post_id) {
+  return DB::table('like')
+    ->where('user_id', '=', $user_id)
+    ->where('post_id', '=', $post_id)
+    ->first();
+}
+
+function delete_like($user_id, $post_id) {
+  DB::table('like')
+    ->where('user_id', '=', $user_id)
+    ->where('post_id', '=', $post_id)
+    ->delete();
+}
+
+function insert_like($user_id, $post_id) {
+  DB::table('like')->insert([
+    'user_id' => $user_id,
+    'post_id' => $post_id
+  ]);
+}
+
+function fetch_like_count($post_id) {
+  return DB::table('like')
+    ->where('post_id', '=', $post_id)
+    ->count();
+}
+
 $body = json_decode(file_get_contents("php://input"), true);
 
-$like = DB::table('like')
-  ->where('user_id', '=', $_SESSION['user_id'])
-  ->where('post_id', '=', $body['post_id'])
-  ->first();
+$like = fetch_like($_SESSION['user_id'], $body['post_id']);
 
 if($like) {
-  DB::table('like')
-    ->where('user_id', '=', $_SESSION['user_id'])
-    ->where('post_id', '=', $body['post_id'])
-    ->delete();
-
+  delete_like($_SESSION['user_id'], $body['post_id']);
   $liked = false;
 } else {
-  $new_like = [
-    'user_id' => $_SESSION['user_id'],
-    'post_id' => $body['post_id']
-  ];
-
-  DB::table('like')->insert($new_like);
-
+  insert_like($_SESSION['user_id'], $body['post_id']);
   $liked = true;
 }
 
-$like_count = DB::table('like')
-  ->where('post_id', '=', $body['post_id'])
-  ->count();
+$like_count = fetch_like_count($body['post_id']);
 
 $data = array();
 $data['post_id'] = $body['post_id'];

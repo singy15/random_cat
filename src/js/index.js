@@ -21,5 +21,23 @@ window.toggleLike = function(post_id) {
     });
 }
 
+window.toggleFavorite = function(post_id) {
+  axios
+    .post('/post_favorite.php',
+      {
+        post_id: post_id
+      }
+    ).then(response => {
+      console.log(response);
+
+      var favorite = document.getElementById("favorite"); 
+      if(response.data.is_favorite) {
+        favorite.src = "/static/image/heart.svg";
+      } else {
+        favorite.src = "/static/image/heart-outlined.svg";
+      }
+    });
+}
+
 console.log("らんだむにゃんこ!!!!");
 
