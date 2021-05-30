@@ -18,19 +18,35 @@
               <small class="text-muted">投稿者: {{ $author->login_id }}</small>
 
               <span>
-                <a href="#" class="clear-link">
-                  <img src="/static/image/heart-outlined.svg" width="20" alt="Myにゃんこ">
-                </a>
+                <form method="post" action="/post_favorite.php"   
+                    name="post_form_favorite" style="display:inline">
+                  <input type="hidden" name="post_id" 
+                      value="{{ $post->post_id }}">
+                  <a href="{{ isset($_SESSION['user_id'])? 'javascript:toggleFavorite('. $post->post_id .')' : '/login.php' }}" 
+                      class="clear-link">
+                    <img id="favorite" 
+                      src="{{ ($favorite)? '/static/image/heart.svg' : '/static/image/heart-outlined.svg' }}" 
+                      width="20" alt="Myにゃんこ">
+                  </a>
+                </form>
 
                 &nbsp;
                 &nbsp;
 
-                <a href="#" class="clear-link">
-                  <img src="/static/image/footprint-outlined.svg" width="20" alt="いいにゃ">
-                  <small class="text-muted">
-                    x16
-                  </small>
-                </a>
+                <form method="post" action="/post_like.php"   
+                    name="post_form_like" style="display:inline">
+                  <input type="hidden" name="post_id" 
+                      value="{{ $post->post_id }}">
+                  <a href="{{ isset($_SESSION['user_id'])? 'javascript:toggleLike('. $post->post_id .')' : '/login.php' }}" 
+                      class="clear-link">
+                    <img id="like" 
+                      src="{{ ($like)? '/static/image/footprint-filled.svg' : '/static/image/footprint-outlined.svg' }}" 
+                      width="20" alt="いいにゃ">
+                  </a>
+                </form>
+                <small id="like_count" class="text-muted">
+                  {{ 'x' . $like_count }}
+                </small>
 
                 @if ($_SESSION['user_id'] == $post->author)
                   &nbsp;
@@ -57,7 +73,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-2">
-      <div class="col">
+      <div class="col-12 col-sm-12 col-md-12">
         <a href="javascript:history.back()" class="labeled-image-button 
             text-x-small text-bold text-color-gray">
           <img class="labeled-image-button" width="64" height="64" 
@@ -69,5 +85,9 @@
     </div>
 
 </div>
+@endsection
+
+@section('script')
+<script src="/static/js/post_detail.js"></script>
 @endsection
 

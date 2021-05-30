@@ -15,6 +15,7 @@ module.exports = {
   // },
   entry: {
     "index": "./src/js/index.js",
+    "post_detail": "./src/js/post_detail.js",
     "template": "./src/js/template.js",
     "style": "./src/js/style.js",
   },

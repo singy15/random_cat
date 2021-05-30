@@ -41,9 +41,10 @@ function fetch_like_count($post_id) {
  * Fetch favorite of user
  */
 function fetch_favorite($user_id, $post_id) {
-  return DB::table('like')
-  ->where('post_id', '=', $post_id)
-  ->count();
+  return DB::table('favorite')
+    ->where('user_id', '=', $user_id)
+    ->where('post_id', '=', $post_id)
+    ->first();
 }
 
 // Get a post randomly
