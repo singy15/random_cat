@@ -8,8 +8,6 @@ session_start();
 $error = array();
 
 $variables = [
-  "variable1"=>"Hello",
-  "variable2"=>"World",
   "error" => $error
 ];
  

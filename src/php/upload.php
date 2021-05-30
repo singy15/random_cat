@@ -34,7 +34,8 @@ if(!empty($_POST) && array_key_exists('posted', $_POST)) {
   }
 
   if(count($error) == 0) {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['PHP_SELF'])*/ . '/upload_post.php', true, 307);
+    header('Location: http://' . $_SERVER['HTTP_HOST'] 
+      . '/upload_post.php', true, 307);
     exit();
   }
 }

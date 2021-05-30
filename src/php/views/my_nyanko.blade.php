@@ -9,11 +9,19 @@
     var page_count = {{ $get_form['page_count']  }};
     var page = {{ $get_form['page'] }};
 
+    /*
+     * Change category
+     */
     function onCategoryChange(category) {
       document.getElementById("category").value = category;
       document.getElementById("page").options[0].selected = "true";
     }
 
+    /*
+     * Move page
+     * set dir=-1 to move previous page
+     * set dir=1 to move next page
+     */
     function onPageMove(dir) {
       var target = page + dir;
 
@@ -32,17 +40,14 @@
         }   
       }
     }
-
-    function toggleLike() {
-
-    }
   </script>
 
   <div class="container" id="app">
     <form method="get" action="/my_nyanko.php" name="get_form">
       <div class="row">
         <div class="col pb-2">
-          <input type="hidden" name="category" id="category" value="{{ $get_form['category'] }}">
+          <input type="hidden" name="category" id="category" 
+            value="{{ $get_form['category'] }}">
 
           <button type="submit" class="btn btn-secondary btn-sm 
               {{ (!empty($get_form['category']) && ($get_form['category'] == 'favorite'))? 'active' : '' }}"
@@ -86,14 +91,19 @@
         <div class="col-12 col-sm-6 col-md-4 mx-auto">
           <span class="span-table" style="text-align:center;">
             <span class="span-table-cell">
-              <a href="javascript:get_form.submit()" onclick="onPageMove(-1)" class="center-labeled-image-button text-x-small text-bold text-color-gray">
+              <a href="javascript:get_form.submit()" onclick="onPageMove(-1)" 
+                class="center-labeled-image-button text-x-small text-bold 
+                  text-color-gray">
                 <span>前</span>
-                <img class="center-labeled-image-button" width="48" height="48" src="/static/image/cat-walk.svg" style="transform:scale(-1.0, 1.0);" alt="前">
+                <img class="center-labeled-image-button" 
+                  width="48" height="48" src="/static/image/cat-walk.svg" 
+                  style="transform:scale(-1.0, 1.0);" alt="前">
               </a>
             </span>
 
             <span class="span-table-cell">
-              <select name="page" id="page" onchange="javascript:get_form.submit()">
+              <select name="page" id="page" 
+                onchange="javascript:get_form.submit()">
                 @for ($i = 0; $i < $get_form['page_count']; $i++)
                   <option value="{{ $i }}" 
                       {{ ($get_form['page'] == ((int)$i))? ' selected ' : '' }}
@@ -103,9 +113,13 @@
             </span>
 
             <span class="span-table-cell">
-              <a href="javascript:get_form.submit()" onclick="onPageMove(1)" class="center-labeled-image-button text-x-small text-bold text-color-gray">
+              <a href="javascript:get_form.submit()" onclick="onPageMove(1)" 
+                class="center-labeled-image-button text-x-small 
+                  text-bold text-color-gray">
                 <span>次</span>
-                <img class="center-labeled-image-button" width="48" height="48" src="/static/image/cat-walk.svg" alt="次">
+                <img class="center-labeled-image-button" 
+                  width="48" height="48" src="/static/image/cat-walk.svg" 
+                  alt="次">
               </a>
             </span>
           </span>
@@ -114,8 +128,10 @@
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-2">
         <div class="col">
-          <a href="/index.php" class="labeled-image-button text-x-small text-bold text-color-gray">
-            <img class="labeled-image-button" width="64" height="64" src="/static/image/back.svg" alt="もどる">
+          <a href="/index.php" class="labeled-image-button text-x-small 
+              text-bold text-color-gray">
+            <img class="labeled-image-button" width="64" height="64" 
+              src="/static/image/back.svg" alt="もどる">
             <br>
             <span>もどる</span>
           </a>

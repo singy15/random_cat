@@ -23,12 +23,7 @@ $database = new DB();
 // Connection
 $config = [
   'driver'    => 'sqlite',
-  'host'      => 'localhost',
   'database'  => 'random_cat.db',
-  // 'username'  => 'user',
-  // 'password'  => 'password',
-  // 'charset'   => 'utf8mb4',
-  // 'collation' => 'utf8mb4_general_ci',
 ];
 
 $database->addConnection($config);

@@ -1,8 +1,7 @@
 <?php
 require_once "common.php";
 
-$variables = [
-];
+$variables = [];
  
 echo $blade->run("signup_success", $variables);
 ?>

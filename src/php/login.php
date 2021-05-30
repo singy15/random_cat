@@ -27,7 +27,8 @@ if(!empty($_POST) && array_key_exists('posted', $_POST)) {
     if($user && password_verify($_POST['password'], $user->password)) {
       $authenticated = true;
     } else {
-      $error[] = "ログイン失敗しました、ユーザIDとパスワードを確認してください";
+      $error[] = 
+        "ログイン失敗しました、ユーザIDとパスワードを確認してください";
     }
   }
 
@@ -37,7 +38,8 @@ if(!empty($_POST) && array_key_exists('posted', $_POST)) {
     $_SESSION['user_name'] = $user->login_id;
   
     // Redirect to index
-    header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['SCRIPT_NAME'])*/ . '/index.php', true, 301);
+    header('Location: http://' . $_SERVER['HTTP_HOST'] 
+      . '/index.php', true, 301);
     exit();
   }
 }

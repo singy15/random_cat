@@ -19,9 +19,6 @@
 
         <form method="post" name="post_form" action="/signup.php" 
             enctype="multipart/form-data">
-          <!--
-          <input type="hidden" name="posted" value="1">
-          -->
 
           <div class="form-group">
             <label for="exampleInputEmail1" class="text-color-gray text-bold">

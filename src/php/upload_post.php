@@ -3,7 +3,7 @@ require_once "common.php";
 
 // File size check
 if ($_FILES['photo']['error'] === 2) {
-  header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['PHP_SELF'])*/ . '/upload_failed.php');
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/upload_failed.php');
   exit();
 }
 
@@ -28,7 +28,7 @@ DB::table('post')->insert($new_post);
 
 $variables = [];
 
-header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['PHP_SELF'])*/ . '/uploaded.php');
+header('Location: http://' . $_SERVER['HTTP_HOST'] . '/uploaded.php');
 exit();
 
 ?>

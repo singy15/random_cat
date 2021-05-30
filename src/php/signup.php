@@ -62,7 +62,8 @@ if(!empty($_POST)) {
     DB::table('user')->insert($new_user);
 
     // Redirect to signup success
-    header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['SCRIPT_NAME'])*/ . '/signup_success.php');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] 
+      . '/signup_success.php');
     exit();
   }
 }

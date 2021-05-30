@@ -15,7 +15,7 @@ if(!empty($_POST['post_id'])) {
 
 $variables = [];
 
-header('Location: http://' . $_SERVER['HTTP_HOST'] /*. dirname($_SERVER['PHP_SELF'])*/ . '/my_nyanko.php');
+header('Location: http://' . $_SERVER['HTTP_HOST'] . '/my_nyanko.php');
 exit();
 
 ?>

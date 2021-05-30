@@ -5,7 +5,8 @@ require_once "common.php";
  * Fetch a post randomly
  */
 function fetch_random_post() {
-  return DB::select('select * from post order by random() limit 1').first();
+  $posts = DB::select('select * from post order by random() limit 1');
+  return (count($posts) == 1)? $posts[0] : null;
 }
 
 /*
@@ -52,7 +53,7 @@ $post = fetch_random_post();
 $author = fetch_user_by_user_id($post->author);
 
 // Get like of user
-$like = fetch_like_user($_SESSION['user_id']), $post->post_id);
+$like = fetch_like_user($_SESSION['user_id'], $post->post_id);
 
 // Get like count
 $like_count = fetch_like_count($post->post_id);

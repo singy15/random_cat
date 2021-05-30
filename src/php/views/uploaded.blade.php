@@ -12,8 +12,10 @@
         <br>
         <br>
 
-        <a href="/index.php" class="labeled-image-button text-x-small text-bold text-color-gray">
-          <img class="labeled-image-button" width="64" height="64" src="/static/image/back.svg" alt="もどる">
+        <a href="/index.php" class="labeled-image-button text-x-small 
+            text-bold text-color-gray">
+          <img class="labeled-image-button" width="64" height="64" 
+            src="/static/image/back.svg" alt="もどる">
           <br>
           <span>もどる</span>
         </a>
