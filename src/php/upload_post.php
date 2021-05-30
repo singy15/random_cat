@@ -20,8 +20,8 @@ $new_post = [
   'subject' => $_POST['subject'],
   'description' => $_POST['description'],
   'photo_path' => $photo_filename,
-  'author' => 1, $_SESSION['user_id'],
-  'user_id' => 1 $_SESSION['user_id']
+  'author' => $_SESSION['user_id'],
+  'user_id' => $_SESSION['user_id']
 ];
 
 DB::table('post')->insert($new_post);
