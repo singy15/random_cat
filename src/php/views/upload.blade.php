@@ -31,6 +31,7 @@
               accept=".png, .jpg, .jpeg, .gif" 
               id="exampleInputEmail3" placeholder="ファイルを選択してください"
               required>
+            <br>
             <small class="form-text text-muted">
               ※PMG、JPEG、GIFに対応しています
             </small>
