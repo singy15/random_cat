@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+  らんだむにゃんこ - Top
+@endsection
+
 @section('content-title')
   らんだむにゃんこ
 @endsection
@@ -11,7 +15,6 @@
         <div class="card shadow-sm p-1">
           <img class="bd-placeholder-img card-img-top img-fluid" src="/static/photo/{{ $post->photo_path }}" role="img" 
             aria-label="Placeholder: Thumbnail"  focusable="false">
-            <title>Placeholder</title>
             <span class="text-bold text-color-gray">"{{ $post->subject }}"</span>
           </img>
           <div class="card-body py-1 pb-2">
@@ -20,11 +23,6 @@
               <small class="text-muted">投稿者: {{ $author->login_id }}</small>
 
               <span>
-                <!--
-                <a href="#" class="clear-link">
-                  <img src="/static/image/heart-outlined.svg" width="20" alt="Myにゃんこ">
-                </a>
-                -->
                 <form method="post" action="/post_favorite.php"   
                     name="post_form_favorite" style="display:inline">
                   <input type="hidden" name="post_id" 
