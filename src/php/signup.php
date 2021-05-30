@@ -27,6 +27,12 @@ if(!empty($_POST)) {
     $input_validated = false;
   }
 
+  if(!preg_match('/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}+\z/', 
+      $_POST['password'])) {
+      $error[] = "パスワードは半角英数大文字小文字をそれぞれ1つ含む8文字以上にしてください";
+    $input_validated = false;
+  }
+
   // Check password_confirm not empty
   if(empty($_POST['password_confirm'])) {
     $error[] = "パスワード（確認）を入力してください";
