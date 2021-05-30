@@ -53,13 +53,19 @@ $post = fetch_random_post();
 $author = fetch_user_by_user_id($post->author);
 
 // Get like of user
-$like = fetch_like_user($_SESSION['user_id'], $post->post_id);
+$like = null;
+if(isset($_SESSION['user_id'])) {
+  $like = fetch_like_user($_SESSION['user_id'], $post->post_id);
+}
 
 // Get like count
 $like_count = fetch_like_count($post->post_id);
 
 // Get favorite
-$favorite = fetch_favorite($_SESSION['user_id'], $post->post_id);
+$favorite = null;
+if(isset($_SESSION['user_id'])) {
+  $favorite = fetch_favorite($_SESSION['user_id'], $post->post_id);
+}
 
 // Variables for template
 $variables = [
