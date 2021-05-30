@@ -36,8 +36,8 @@ Myにゃんこに登録することで自分だけのお気に入りのにゃん
 - BladeOne v3.52
 - Illuminate/Database v8.42
 - SQLite3
-- Vue.js
 - Bootstrap4
+- Axios 0.21.1
 
 
 
