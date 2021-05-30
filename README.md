@@ -31,7 +31,7 @@ Myにゃんこに登録することで自分だけのお気に入りのにゃん
 ## 使用技術
 
 - Apache v2.4.47
-- PHP v8.0.6
+- PHP v7.4.3
 - Composer v2.0.14
 - BladeOne v3.52
 - Illuminate/Database v8.42
