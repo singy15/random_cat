@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <script src="/static/js/style.js"></script>
   <style>
     html,body {
       height: 100%;
@@ -101,7 +100,7 @@
     placeholder="ユーザID" autofocus>
   <input type="password" name="password" class="form-control" 
     placeholder="パスワード">
-  <button class="btn btn-lg btn-primary btn-block" 
+  <button class="btn btn-lg btn-primary btn-block w-100" 
     type="submit">ログイン</button>
 
   <?php if( !empty($error) ): ?>
@@ -113,9 +112,13 @@
   <?php endif; ?>
 
   <br>
+  <br>
+
   <a href="/index.php" class="small">ゲストとして利用する</a>
+
   <br>
   <br>
+
   <a href="/signup.php" class="small">アカウント作成</a>
 
   <p class="mt-5 mb-3 text-muted">&copy; kedama 2021</p>

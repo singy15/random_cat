@@ -127,7 +127,7 @@
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-2">
-        <div class="col">
+        <div class="col-12 col-sm-12 col-md-12">
           <a href="/index.php" class="labeled-image-button text-x-small 
               text-bold text-color-gray">
             <img class="labeled-image-button" width="64" height="64" 

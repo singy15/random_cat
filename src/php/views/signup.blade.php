@@ -89,6 +89,8 @@
           -->
           <input type="hidden" name="agreed" value="1">
 
+          <br>
+
           <a href="javascript:post_form.submit()" class="labeled-image-button 
               text-x-small text-bold text-color-gray">
             <img class="labeled-image-button" width="64" height="64" 
