@@ -39,5 +39,3 @@ window.toggleFavorite = function(post_id) {
     });
 }
 
-console.log("らんだむにゃんこ!!!!");
-
