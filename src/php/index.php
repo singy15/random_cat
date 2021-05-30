@@ -50,22 +50,29 @@ function fetch_favorite($user_id, $post_id) {
 // Get a post randomly
 $post = fetch_random_post();
 
-// Get author of post
-$author = fetch_user_by_user_id($post->author);
-
-// Get like of user
+$author = null;
 $like = null;
-if(isset($_SESSION['user_id'])) {
-  $like = fetch_like_user($_SESSION['user_id'], $post->post_id);
-}
-
-// Get like count
-$like_count = fetch_like_count($post->post_id);
-
-// Get favorite
+$like_count = null;
 $favorite = null;
-if(isset($_SESSION['user_id'])) {
-  $favorite = fetch_favorite($_SESSION['user_id'], $post->post_id);
+
+if($post) {
+  // Get author of post
+  $author = fetch_user_by_user_id($post->author);
+
+  // Get like of user
+  $like = null;
+  if(isset($_SESSION['user_id'])) {
+    $like = fetch_like_user($_SESSION['user_id'], $post->post_id);
+  }
+
+  // Get like count
+  $like_count = fetch_like_count($post->post_id);
+
+  // Get favorite
+  $favorite = null;
+  if(isset($_SESSION['user_id'])) {
+    $favorite = fetch_favorite($_SESSION['user_id'], $post->post_id);
+  }
 }
 
 // Variables for template

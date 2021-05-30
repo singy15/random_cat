@@ -12,6 +12,8 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-9 col-lg-8 mx-auto">
+
+        @if($post)
         <div class="card shadow-sm p-1">
           <img class="bd-placeholder-img card-img-top img-fluid" 
             src="/static/photo/{{ $post->photo_path }}" role="img" 
@@ -62,6 +64,10 @@
             </div>
           </div>
         </div>
+        @else
+        <span class="text-muted">にゃんこが一匹もいません...</span>
+        @endif
+
       </div>
     </div>
 
