@@ -10,6 +10,14 @@ if(!empty($_POST['post_id'])) {
     ->where('post_id', '=', $post->post_id)
     ->delete();
 
+  DB::table('like')
+    ->where('post_id', '=', $post->post_id)
+    ->delete();
+
+  DB::table('favorite')
+    ->where('post_id', '=', $post->post_id)
+    ->delete();
+
   unlink('static/photo/' . $post->photo_path);
 }
 
